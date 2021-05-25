@@ -251,11 +251,7 @@ function createNewContact() {
   createButton.innerText = "Create";
 
   formEl.addEventListener("submit", function (event) {
-    event.preventDefault();
-    // debugger;
-    // console.log("you have clicked create button");
-    // console.log(event.target);
-
+    // event.preventDefault();
     const dataObject = parseFormEvent(event);
     createAContact(dataObject);
   });
@@ -281,21 +277,6 @@ function createNewContact() {
   viewSection.append(formEl);
 }
 
-function createAContact(newContactObject) {
-  const { street, city, postCode } = newContactObject;
-  fetch("http://localhost:3000/addresses", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      street,
-      city,
-      postCode,
-    }),
-  });
-}
-
 function parseFormEvent(event) {
   const form = event.target;
   const contactObject = {
@@ -309,8 +290,35 @@ function parseFormEvent(event) {
   return contactObject;
 }
 
-// above to CREATE - we need to send a POST request
-// i need this to update the server and then the state - somehow
+function createAContact(newContactObject) {
+  const { street, city, postCode } = newContactObject;
+  fetch("http://localhost:3000/addresses", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      street,
+      city,
+      postCode,
+    }),
+
+    // no idea how to nest the below inside the other fetch to get the remaining data needed to make the ontact...
+    // ... using the id from above
+
+    // const { firstName, lastName, blockContact } = newContactObject,
+    // fetch("http://localhost:3000/contacts", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     firstName,
+    //     lastName,
+    //     blockContact,
+    //   }),
+  });
+}
 
 function editNewContact() {
   const formEl = document.createElement("form");
@@ -371,9 +379,9 @@ function editNewContact() {
   createButton.setAttribute("type", "submit");
   createButton.innerText = "Update";
 
-  createButton.addEventListener("click", function (event) {
+  createButton.addEventListener("submit", function (event) {
     viewSection.innerHTML = "";
-    console.log("hello you clicked edit");
+    console.log("hello you clicked update");
   });
 
   actionsSection.append(createButton);
