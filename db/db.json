@@ -1,0 +1,50 @@
+{
+  "contacts": [
+    {
+      "id": "1",
+      "firstName": "Boris",
+      "lastName": "Johnson",
+      "blockContact": true,
+      "addressId": 1
+    },
+    {
+      "id": "2",
+      "firstName": "The",
+      "lastName": "Queen",
+      "blockContact": false,
+      "addressId": 2
+    }
+  ],
+  "addresses": [
+    {
+      "id": 1,
+      "street": "10 Downing Street",
+      "city": "London",
+      "postCode": "SW1A 2AB"
+    },
+    {
+      "id": 2,
+      "street": "Buckingham Palace",
+      "city": "London",
+      "postCode": "SW1A 1AA"
+    },
+    {
+      "street": "5 lethaby house",
+      "city": "london",
+      "postCode": "sw47rb",
+      "id": 3
+    },
+    {
+      "street": "Homeless",
+      "city": "Poopville",
+      "postCode": "Oxford Somewhere",
+      "id": 4
+    },
+    {
+      "street": "yes",
+      "city": "no ",
+      "postCode": "asdfa452345",
+      "id": 5
+    }
+  ]
+}
